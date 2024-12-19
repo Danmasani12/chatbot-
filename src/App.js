@@ -1,8 +1,8 @@
 import React from 'react';
-import Chat from './components/Chat'; // Adjust path as needed
+import ChatWidget from './components/ChatWidget';
 
 function App() {
-  return <Chat />;
+  return <ChatWidget />;
 }
 
 export default App;

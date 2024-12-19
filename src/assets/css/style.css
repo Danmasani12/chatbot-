@@ -12,7 +12,7 @@
     position: absolute;
     right: 9px;
     width: 100px;
-    height: 45px;
+    height: 25px;
 }
 
 .r-nav li {
@@ -675,6 +675,30 @@ Custom Srollbar
     background: #242577;
 }
 
+.messages-content {
+  max-height: 400px; /* Limit height to enable scrolling */
+  overflow-y: auto; /* Add vertical scrollbar */
+  padding: 10px;
+  scrollbar-width: thin; /* For Firefox */
+  scrollbar-color: #888 #f1f1f1; /* For Firefox */
+}
+
+.messages-content::-webkit-scrollbar {
+  width: 8px; /* Scrollbar width for WebKit browsers */
+}
+
+.messages-content::-webkit-scrollbar-thumb {
+  background: #888; /* Scrollbar thumb color */
+  border-radius: 4px; /* Rounded corners */
+}
+
+.messages-content::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Thumb color on hover */
+}
+
+.messages-content::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Track color */
+}
 
 
 .intro {
@@ -1216,19 +1240,13 @@ Bounce
     /* Pause the animations when you hover over it */
 }
 .footer-container {
-    background: transparent;
-    height: 5rem;
+    position: fixed;
+    bottom: 0;
     width: 100%;
-    display: flex;
-    align-items: center;
-    padding-bottom: 2.4rem
-}
-.footer {
-    padding: 0 1rem;
-    width: 100%;
-    grid-gap: 1rem;
-    gap: 1rem
-}
+    background-color: #f5f5f5;
+    z-index: 1000;
+  }
+
 
 .footer,.footer .burger-icon {
     display: flex;
@@ -1541,26 +1559,24 @@ html {
 
 
   .transparency3 {
-    height: 100%;
-    z-index: 8;
-    position: absolute;
+    position: fixed;
+    bottom: 60px; /* Adjusted to appear above the footer */
+    left: 0;
     width: 100%;
-    background-color: rgba(85, 59, 59, 0.5);
-    padding-top: 900px;
-    text-align: center;
-}
-
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+  }
+  
   .dialog-box3 {
-    top: 40%;
-    height: 100%;
-    z-index: 9;
-    position: absolute;
-    width: 100%;
-    background: #fff;
-    padding-top: 20px;
-    text-align: center;
-    border-radius: 1rem 1rem 0 0;
-}
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
 
 
 .dialog-box3 h3 {
@@ -1596,17 +1612,17 @@ html {
 
 
 
-  .login-title {
-    position: relative;
-    top: 40px;
+.login-title {
     font-weight: 700;
     font-size: 18px;
     line-height: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    letter-spacing: .16px;
+    text-align: center;
+    letter-spacing: 0.16px;
     color: #000;
+
+    /* Move title to the top */
+    margin: 0; /* Reset margins */
+    padding: 20px 0; /* Adds space above and below */
 }
   .net-banking-form .input-field label {
     /* position: absolute; */
@@ -2108,34 +2124,43 @@ button {
 
 
 
-.language-button-container {
-    top:40px;
-    position: relative;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    flex-direction: row;
+.language-menu {
+    position: absolute;
+    bottom: 50px;
+    background: white;
+    border: 1px solid #ddd;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    border-radius: 8px;
   }
-
-  .language-button {
-    display: inline-block;
-    padding: 15px 30px;
-    font-size: 16px;
+  
+  .language-title {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
     font-weight: bold;
-    text-align: center;
-    text-decoration: none;
-    color: #333;
-    background-color: #3498db;
-    border: 2px solid #3498db;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+  }
+  
+  .language-button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .language-button {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
     cursor: pointer;
-    margin: 10px;
+    border-radius: 5px;
+    text-align: center;
+    width: 150px;
   }
-
+  
   .language-button:hover {
-    background-color: #2980b9;
+    background-color: #e0e0e0;
+    color: #007bff;
   }
+  
 
   /* You can customize the colors and styles further based on your preference */
 
@@ -2293,35 +2318,157 @@ button {
   /* Slide images */
   .mySlides img {
     width: 100%; /* Make images fit the container */
-    height: 100%; /* Optional: Maintain container height */
+    height: 50%; /* Optional: Maintain container height */
     object-fit: cover; /* Ensures the image scales properly without overflow */
     margin: 0; /* Remove any margin */
     padding: 0;
+    margin-top: -5%;
     border: none;
   }
   
-  /* Apply styles to the scrollable content container */
-.messages-content {
-    overflow-y: auto;  /* Enable vertical scrolling */
-    padding-right: 10px; /* Prevent content from being hidden behind the scrollbar */
+
+  
+  /* Voice Chat Button */
+.voice-btn {
+    background-color: #4caf50;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
   }
   
-  /* Custom Scrollbar Styles */
-  .messages-content::-webkit-scrollbar {
-    width: 8px; /* Width of the scrollbar */
+  .voice-btn img {
+    width: 24px;
+    height: 24px;
   }
   
-  .messages-content::-webkit-scrollbar-track {
-    background: #f1f1f1; /* Background of the scrollbar track */
+  .voice-btn.active {
+    background-color: #ff5722;
   }
   
-  .messages-content::-webkit-scrollbar-thumb {
-    background: #888; /* Color of the scrollbar thumb */
-    border-radius: 4px; /* Rounded corners for the scrollbar thumb */
+  .voice-btn:hover {
+    background-color: #45a049;
   }
   
-  .messages-content::-webkit-scrollbar-thumb:hover {
-    background: #555; /* Color when hovering over the scrollbar */
+
+  /* Footer Wrapper */
+.footer-wrapper {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #f5f5f5;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
   }
   
+  /* Footer Wrapper */
+.footer-wrapper {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+  
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .msg-input-container {
+    flex: 1;
+  }
+  
+  .msg-input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .voice-btn {
+    background-color: #4caf50;
+    border: none;
+    border-radius: 50%;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .voice-btn.active {
+    background-color: #ff5722;
+  }
+  
+  .voice-overlay-container {
+    position: fixed;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3000;
+    display: none;
+  }
+  
+  .voice-overlay-container.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .voice-overlay {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+  }
+  
+  .voice-overlay-image {
+    width: 50px;
+    height: 50px;
+    animation: pulse 1.5s infinite;
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  .chat-section {
+    padding: 10px;
+    max-height: 400px;
+    overflow-y: auto;
+  }
+  
+  .chat-message {
+    margin: 8px 0;
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 70%;
+  }
+  
+  .user-message {
+    align-self: flex-end;
+    background-color: #d1e7dd;
+    color: #0f5132;
+    text-align: right;
+  }
+  
+  .bot-message {
+    align-self: flex-start;
+    background-color: #f8d7da;
+    color: #842029;
+    text-align: left;
+  }
   

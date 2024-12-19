@@ -1,0 +1,127 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Floating Action Button (FAB) */
+.fabs {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    cursor: pointer;
+}
+
+.fab {
+    display: block;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #FF5722;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease-in-out;
+}
+
+.fab:hover {
+    transform: scale(1.1);
+}
+
+.fab img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+/* Chat Window Styles */
+.chat-window {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 500px; /* Small width */
+    height: 450px; /* Fixed height */
+    max-height: 550px;
+    background-color: #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    z-index: 1001;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Chat Header */
+.chat-header {
+    background: #263238;
+    color: white;
+    padding: 10px;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.chat-header button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.chat-header button:hover {
+    text-decoration: underline;
+}
+
+/* Chat Body */
+.chat-body {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    background-color: #f9f9f9;
+    font-size: 13px;
+    color: #333;
+}
+
+/* Minimized Chat */
+.minimized {
+    height: 50px; /* Compact height for minimized chat */
+    overflow: hidden;
+}
+
+.maximized {
+    height: 450px; /* Restore to full height */
+}
+
+/* Floating Animation */
+.float-animation {
+    animation: float 2s ease-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Responsive Design for Small Screens */
+@media (max-width: 480px) {
+    .chat-window {
+        width: 90%; /* Adjust width for mobile view */
+        right: 5%;
+        bottom: 80px;
+    }
+
+    .fab {
+        width: 50px;
+        height: 50px;
+    }
+}
